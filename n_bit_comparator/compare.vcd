@@ -1,0 +1,68 @@
+$date
+	Wed Jul  9 14:10:31 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$var wire 1 ! lt $end
+$var wire 1 " gt $end
+$var wire 1 # eq $end
+$var reg 16 $ A [15:0] $end
+$var reg 16 % B [15:0] $end
+$scope module DUT $end
+$var wire 16 & A [15:0] $end
+$var wire 16 ' B [15:0] $end
+$var parameter 32 ( word_size $end
+$var reg 1 # eq $end
+$var reg 1 " gt $end
+$var reg 1 ! lt $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10000 (
+$end
+#0
+$dumpvars
+bx '
+bx &
+bx %
+bx $
+x#
+x"
+x!
+$end
+#5
+0#
+1!
+0"
+b1 %
+b1 '
+b0 $
+b0 &
+#10
+1!
+b1111111111111111 %
+b1111111111111111 '
+b1111111100000000 $
+b1111111100000000 &
+#15
+1#
+0!
+b1000000000001 %
+b1000000000001 '
+b1000000000001 $
+b1000000000001 &
+#20
+1"
+0#
+b1010000000011001 %
+b1010000000011001 '
+b1011000000000000 $
+b1011000000000000 &
+#25

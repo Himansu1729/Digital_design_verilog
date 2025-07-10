@@ -1,0 +1,30 @@
+module four_bit_carry_lookahead_adder(in1,in2,cin,sum,cout);
+	input [3:0]in1,in2;
+	input cin;
+	output [3:0] sum;
+	output cout;
+	wire g0,g1,g2,g3,p0,p1,p2,p3;
+	wire[3:1]c;
+	wire[3:0]t;
+
+	xor G1(p0,in1[0],in2[0]);
+	xor G2(p1,in1[1],in2[1]);
+	xor G3(p2,in1[2],in2[2]);
+	xor G4(p3,in1[3],in2[3]);
+	and G5(g0,in1[0],in2[0]);
+	and G6(g1,in1[1],in2[1]);
+	and G7(g2,in1[2],in2[2]);
+	and G8(g3,in1[3],in2[3]);
+	and G10(t[0],p0,cin);
+	or G11(c[1],g0,t[0]);
+	and G12(t[1],p1,c[1]);
+	or G13(c[2],g1,t[1]);
+	and G14(t[2],p2,c[2]);
+	or G15(c[3],g2,t[2]);
+	and G16(t[3],p3,c[3]);
+	or G17(cout,g3,t[3]); 
+	assign sum[0] = p0^cin;
+	assign sum[1] = p1^c[1];
+	assign sum[2] = p2^c[2];
+	assign sum[3] = p3^c[3];
+endmodule

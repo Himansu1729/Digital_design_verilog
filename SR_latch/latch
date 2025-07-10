@@ -1,0 +1,70 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x5ff4cb475850 .scope module, "testbench" "testbench" 2 1;
+ .timescale 0 0;
+v0x5ff4cb489b70_0 .net "Q", 0 0, L_0x5ff4cb489fe0;  1 drivers
+v0x5ff4cb489c30_0 .net "Qbar", 0 0, L_0x5ff4cb48a1b0;  1 drivers
+v0x5ff4cb489cd0_0 .var "R", 0 0;
+v0x5ff4cb489dd0_0 .var "S", 0 0;
+S_0x5ff4cb4759e0 .scope module, "DUT" "SR_latch" 2 4, 3 1 0, S_0x5ff4cb475850;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q";
+    .port_info 1 /OUTPUT 1 "Qbar";
+    .port_info 2 /INPUT 1 "S";
+    .port_info 3 /INPUT 1 "R";
+L_0x5ff4cb489ea0 .functor AND 1, v0x5ff4cb489cd0_0, L_0x5ff4cb48a1b0, C4<1>, C4<1>;
+L_0x5ff4cb489fe0 .functor NOT 1, L_0x5ff4cb489ea0, C4<0>, C4<0>, C4<0>;
+L_0x5ff4cb48a0f0 .functor AND 1, v0x5ff4cb489dd0_0, L_0x5ff4cb489fe0, C4<1>, C4<1>;
+L_0x5ff4cb48a1b0 .functor NOT 1, L_0x5ff4cb48a0f0, C4<0>, C4<0>, C4<0>;
+v0x5ff4cb475c30_0 .net "Q", 0 0, L_0x5ff4cb489fe0;  alias, 1 drivers
+v0x5ff4cb4896c0_0 .net "Qbar", 0 0, L_0x5ff4cb48a1b0;  alias, 1 drivers
+v0x5ff4cb489780_0 .net "R", 0 0, v0x5ff4cb489cd0_0;  1 drivers
+v0x5ff4cb489820_0 .net "S", 0 0, v0x5ff4cb489dd0_0;  1 drivers
+v0x5ff4cb4898e0_0 .net *"_ivl_0", 0 0, L_0x5ff4cb489ea0;  1 drivers
+v0x5ff4cb489a10_0 .net *"_ivl_4", 0 0, L_0x5ff4cb48a0f0;  1 drivers
+    .scope S_0x5ff4cb475850;
+T_0 ;
+    %vpi_call 2 7 "$dumpfile", "latch.vcd" {0 0 0};
+    %vpi_call 2 8 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x5ff4cb475850 {0 0 0};
+    %vpi_call 2 9 "$monitor", $time, " S=%b,R=%b, Q=%b, Qbar=%b", v0x5ff4cb489dd0_0, v0x5ff4cb489cd0_0, v0x5ff4cb489b70_0, v0x5ff4cb489c30_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5ff4cb489dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5ff4cb489cd0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5ff4cb489dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5ff4cb489cd0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5ff4cb489dd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5ff4cb489cd0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5ff4cb489dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5ff4cb489cd0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5ff4cb489dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5ff4cb489cd0_0, 0, 1;
+    %delay 5, 0;
+    %vpi_call 2 16 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "SR_latch.v";
